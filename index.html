@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>PuDO – Optimiza tu ruta en Puno</title>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- App principal -->
+  <script type="module" src="js/app.js" defer></script>
+</head>
+
+<body>
+  <header>PuDO: Puno Delivery Optimizer</header>
+
+  <aside>
+    <!-- Entrada -->
+    <section id="controls" class="card">
+      <label class="lbl" for="input">Describe origen y destinos :</label>
+      <textarea id="input" rows="8"
+        placeholder="Ej.: Salgo de Jr. Deustua 300 y entrego en Parque Pino, Club del Pueblo Salcedo…"></textarea>
+
+      <button id="calc" class="primary">Calcular ruta óptima</button>
+
+      <p id="metrics" class="hint"></p>
+    </section>
+
+    <!-- Resumen -->
+    <section class="card">
+      <h2>Itinerario</h2>
+      <ol id="stops"></ol>
+      <p id="totals"></p>
+      <button id="pdf" hidden>📄 Exportar PDF</button>
+    </section>
+  </aside>
+
+  <main id="map"></main>
+
+  <!-- Diálogo de selección -->
+  <div id="chooser" class="modal" hidden>
+    <div class="modal-box">
+      <h3></h3>
+      <ul id="options"></ul>
+      <button id="skip" class="primary" style="margin-top:.6rem">Omitir</button>
+    </div>
+  </div>
+</body>
+</html>

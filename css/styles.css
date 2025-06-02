@@ -1,0 +1,105 @@
+:root{
+  --accent : #1976d2;
+  --accent-dark:#0f5ab4;
+  --bg     : #f7f9fc;
+  --panel-w: 380px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Inter",system-ui,sans-serif}
+
+body{
+  display:grid;
+  grid-template-columns:var(--panel-w) 1fr;
+  grid-template-rows:auto 1fr;
+  height:100vh;
+  background:var(--bg);
+}
+
+header{
+  grid-column:1/3;
+  padding:.7rem 1.2rem;
+  background:var(--accent);
+  color:#fff;
+  font-size:1.4rem;
+  font-weight:600;
+  letter-spacing:.4px;
+  box-shadow:0 2px 4px #0003;
+}
+
+aside{
+  grid-row:2;
+  background:#fff;
+  display:flex;
+  flex-direction:column;
+  border-right:1px solid #d0d7e2;
+  overflow:auto;
+}
+
+.card{
+  background:#fff;
+  margin:1rem;
+  padding:1.2rem;
+  border:1px solid #e3e7ef;
+  border-radius:10px;
+  box-shadow:0 2px 6px #0001;
+}
+
+#controls{gap:.8rem;display:flex;flex-direction:column}
+
+.lbl{font-size:.9rem;font-weight:600;margin-bottom:.2rem;color:#333}
+
+#input{
+  min-height:8rem;
+  resize:vertical;
+  padding:.75rem;
+  border:1px solid #c4c9d4;
+  border-radius:8px;
+  font-size:.95rem;
+  line-height:1.35;
+}
+
+button{
+  padding:.6rem .9rem;
+  border:none;
+  border-radius:8px;
+  font-weight:600;
+  cursor:pointer;
+  transition:filter .15s;
+}
+button.primary{
+  background:var(--accent);
+  color:#fff;
+}
+button.primary:hover{filter:brightness(.95)}
+button:disabled{opacity:.5;cursor:not-allowed}
+
+#stops{
+  padding-left:1.4rem;
+  margin:.4rem 0;
+  max-height:46vh;
+  overflow:auto;
+  line-height:1.35;
+}
+#stops li{margin:.15rem 0}
+#totals{margin:.6rem 0;font-weight:600}
+
+.hint{font-size:.8rem;color:#666;margin-top:.4rem}
+
+#map{
+  grid-column:2;
+  grid-row:2;
+  height:100%;
+  box-shadow:inset 0 1px 3px #0002;
+}
+
+/* ---------- diálogo ---------- */
+.modal{position:fixed;inset:0;background:#0005;display:flex;align-items:center;justify-content:center;z-index:9999}
+.modal[hidden]{display:none !important}
+.modal-box{
+  background:#fff;padding:1.2rem 1.5rem;border-radius:10px;
+  max-width:420px;width:90%;box-shadow:0 4px 16px #0004
+}
+.modal-box h3{font-size:1rem;margin-bottom:.6rem;font-weight:600;color:#222}
+#options{list-style:disc;margin-left:1.3rem}
+#options li{margin:.3rem 0;cursor:pointer;color:var(--accent-dark)}
+#options li:hover{text-decoration:underline}
